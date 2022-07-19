@@ -1,24 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UUX-8h-x4Y">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="EzC-eh-jR1">
+            <objects>
+                <viewController id="UUX-8h-x4Y" customClass="StartViewController" customModule="sf_homework_module_21_balls" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bay-fN-4IJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zd-Rn-gQS">
+                                <rect key="frame" x="82" y="398" width="250" height="100"/>
+                                <color key="backgroundColor" systemColor="tintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="b3y-Xa-Bdd"/>
+                                    <constraint firstAttribute="height" constant="100" id="d3o-mb-4Qt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Press to start almost a game">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="23"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="actionButtonStart:" destination="UUX-8h-x4Y" eventType="touchUpInside" id="ftK-gk-p6i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ASS-Gt-qqF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Zd-Rn-gQS" firstAttribute="centerX" secondItem="bay-fN-4IJ" secondAttribute="centerX" id="Zg8-Uq-9Fv"/>
+                            <constraint firstItem="4Zd-Rn-gQS" firstAttribute="centerY" secondItem="bay-fN-4IJ" secondAttribute="centerY" id="vD5-x4-K6h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zd7-AI-TQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-893" y="84"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="sf_homework_module_21_balls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NK5-bk-JnD" customClass="CustomBall" customModule="sf_homework_module_21_balls" customModuleProvider="target">
+                                <rect key="frame" x="62" y="93" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="48E-2b-uHR" appends="YES" id="kfu-pg-HF7"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDc-kI-KYf" customClass="CustomBall" customModule="sf_homework_module_21_balls" customModuleProvider="target">
+                                <rect key="frame" x="287" y="93" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tJb-gJ-IN0" appends="YES" id="3YK-rd-9Nt"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85g-mK-pZb" customClass="CustomBall" customModule="sf_homework_module_21_balls" customModuleProvider="target">
+                                <rect key="frame" x="182" y="233" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NtY-Ul-3qe" appends="YES" id="8dO-jA-a4j"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouO-Z9-Lsf" customClass="CustomBall" customModule="sf_homework_module_21_balls" customModuleProvider="target">
+                                <rect key="frame" x="287" y="456" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="pJI-Xa-HHE" appends="YES" id="Ozw-WH-4u4"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWV-Hi-AKj" customClass="CustomBall" customModule="sf_homework_module_21_balls" customModuleProvider="target">
+                                <rect key="frame" x="62" y="456" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hQy-AK-r8z" appends="YES" id="lnl-Bn-skn"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-tX-LYP" customClass="CustomBall" customModule="sf_homework_module_21_balls" customModuleProvider="target">
+                                <rect key="frame" x="182" y="456" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rNW-w3-YZ0" appends="YES" id="Bp1-PV-oxY"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nlg-oi-xmr" customClass="CustomBall" customModule="sf_homework_module_21_balls" customModuleProvider="target">
+                                <rect key="frame" x="182" y="688" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="a1H-UQ-HZ9" appends="YES" id="mR1-Zk-2eF"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQo-mz-3b8">
+                                <rect key="frame" x="82" y="398" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="8Qg-RX-NBZ"/>
+                                    <constraint firstAttribute="width" constant="250" id="aw7-DX-7Zb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Press to start">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressToStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yyx-BS-ASm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iQo-mz-3b8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YeG-cK-yly"/>
+                            <constraint firstItem="iQo-mz-3b8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zkd-F1-SkS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ball_1" destination="NK5-bk-JnD" id="9Ly-LT-RtH"/>
+                        <outlet property="ball_2" destination="JDc-kI-KYf" id="uc6-s5-kYt"/>
+                        <outlet property="ball_3" destination="85g-mK-pZb" id="c9b-gy-b6q"/>
+                        <outlet property="ball_4" destination="ouO-Z9-Lsf" id="RH3-YC-uo0"/>
+                        <outlet property="ball_5" destination="WWV-Hi-AKj" id="8kR-vv-nok"/>
+                        <outlet property="ball_6" destination="Qv4-tX-LYP" id="68Z-ct-A39"/>
+                        <outlet property="ball_7" destination="Nlg-oi-xmr" id="xdP-rs-5PB"/>
+                        <outlet property="restartButton" destination="iQo-mz-3b8" id="jmb-LH-5wD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="48E-2b-uHR" userLabel="Pan Gesture Recognizer 1">
+                    <connections>
+                        <action selector="_customBall:" destination="BYZ-38-t0r" id="HDd-L4-OmS"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="UUO-93-hW4"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="tJb-gJ-IN0" userLabel="Pan Gesture Recognizer 2">
+                    <connections>
+                        <action selector="customBall_2:" destination="BYZ-38-t0r" id="PHh-5r-ncJ"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="nC6-nI-S4p"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="NtY-Ul-3qe" userLabel="Pan Gesture Recognizer 3">
+                    <connections>
+                        <action selector="panGestureCustomBall_3:" destination="BYZ-38-t0r" id="Mri-SM-oxw"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="NVe-rH-zCo"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="pJI-Xa-HHE" userLabel="Pan Gesture Recognizer 4">
+                    <connections>
+                        <action selector="panGestureCustomBall_4:" destination="BYZ-38-t0r" id="l2X-nx-Bdf"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="MEN-Cw-vF0"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="hQy-AK-r8z" userLabel="Pan Gesture Recognizer 5">
+                    <connections>
+                        <action selector="panGestureCustomBall_5:" destination="BYZ-38-t0r" id="5Aw-6j-03s"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="7Qp-iF-eBO"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="rNW-w3-YZ0" userLabel="Pan Gesture Recognizer 6">
+                    <connections>
+                        <action selector="panGestureCustomBall_6:" destination="BYZ-38-t0r" id="tRd-sd-OWY"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="JQ2-sm-NB5"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="a1H-UQ-HZ9" userLabel="Pan Gesture Recognizer 7">
+                    <connections>
+                        <action selector="panGestureCustomBall_7:" destination="BYZ-38-t0r" id="28h-Ay-0ts"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="fCh-ZA-Per"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
