@@ -83,7 +83,13 @@ class ViewController: UIViewController {
         positionBall_7_x = ball_7.frame.origin.x
         positionBall_7_y = ball_7.frame.origin.y
         
-        
+        reset(ball: ball_1, x: positionBall_1_x, y: positionBall_1_y)
+        reset(ball: ball_2, x: positionBall_2_x, y: positionBall_2_y)
+        reset(ball: ball_3, x: positionBall_3_x, y: positionBall_3_y)
+        reset(ball: ball_4, x: positionBall_4_x, y: positionBall_4_y)
+        reset(ball: ball_5, x: positionBall_5_x, y: positionBall_5_y)
+        reset(ball: ball_6, x: positionBall_6_x, y: positionBall_6_y)
+        reset(ball: ball_7, x: positionBall_7_x, y: positionBall_7_y)
         
     }
     
@@ -104,11 +110,17 @@ class ViewController: UIViewController {
     }
     
     func reset(ball: CustomBall, x: CGFloat, y: CGFloat){
+        let random = CGFloat.random(in: 50...75)
+        
         ball.isHidden = false
         ball.workingView.backgroundColor = .blue
         ball.frame.origin.x = x
         ball.frame.origin.y = y
-        ball.workingView.frame.size = CGSize(width: 50, height: 50)
+        
+        ball.workingView.frame.size = CGSize(width: random, height: random)
+        
+//        ball.workingView.frame.size = CGSize(width: 50, height: 50)
+        
         ball.workingView.layer.cornerRadius = ball.workingView.frame.size.height / 2
     }
     
@@ -116,37 +128,63 @@ class ViewController: UIViewController {
         var x: Bool = false
         var y: Bool = false
         
+        
+        
         for value in Int(catchBall.frame.minX)...Int(catchBall.frame.maxX){
-            if (Int(currentBall.frame.origin.x) == value) || (Int(currentBall.frame.minX) == value) || (Int(currentBall.frame.maxX) == value){
+            if (Int(currentBall.frame.minX) == value) || (Int(currentBall.frame.maxX) == value){
                 x = true
             }
         }
 
         for value in Int(catchBall.frame.minY)...Int(catchBall.frame.maxY){
-            if (Int(currentBall.frame.origin.y) == value) || (Int(currentBall.frame.minY) == value) || (Int(currentBall.frame.maxY) == value){
+            if (Int(currentBall.frame.minY) == value) || (Int(currentBall.frame.maxY) == value){
                 y = true
             }
         }
         if x && y {
-            catchBall.workingView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 180/255, alpha: 1.0)
-            catchBall.workingView.frame = CGRect(
-                x: catchBall.workingView.frame.origin.x ,
-                y: catchBall.workingView.frame.origin.y ,
-                width: catchBall.workingView.frame.width + 10,
-                height: catchBall.workingView.frame.height + 10)
-            catchBall.workingView.layer.cornerRadius = catchBall.workingView.frame.size.height / 2
-            currentBall.isHidden = true
+            
+            let catchBallanimate = catchBall
+            let currentBallanimate = currentBall
+            
+            UIView.animate(withDuration: 2, delay: 0, options: .curveEaseIn, animations: {
+                
+                let hue = CGFloat.random(in: 0.0...1.0)
+                
+                catchBallanimate.workingView.layer.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0) .cgColor
+                
+                catchBallanimate.workingView.frame = CGRect(
+                    x: catchBallanimate.workingView.frame.origin.x ,
+                    y: catchBallanimate.workingView.frame.origin.y ,
+                    width: catchBallanimate.workingView.frame.width + 20,
+                    height: catchBallanimate.workingView.frame.height + 20)
+                catchBallanimate.workingView.layer.cornerRadius = catchBallanimate.workingView.frame.size.height / 2
+                currentBallanimate.isHidden = true
+                
+            }, completion: nil)
+            
+            x = false
+            y = false
+            
+//            catchBall.workingView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 180/255, alpha: 1.0)
+//            catchBall.workingView.frame = CGRect(
+//                x: catchBall.workingView.frame.origin.x ,
+//                y: catchBall.workingView.frame.origin.y ,
+//                width: catchBall.workingView.frame.width + 10,
+//                height: catchBall.workingView.frame.height + 10)
+//            catchBall.workingView.layer.cornerRadius = catchBall.workingView.frame.size.height / 2
+//            currentBall.isHidden = true
         }
         
         if ball_2.isHidden && ball_3.isHidden && ball_4.isHidden && ball_5.isHidden && ball_6.isHidden && ball_7.isHidden{
             allHidden = true
             restartButton.isHidden = false
         }
+        
+        
+        
     }
 
     @IBAction func _customBall(_ sender: UIPanGestureRecognizer) {
-        
-        
         
         let gestureTranslation = sender.translation(in: view)
         guard let gestureView = sender.view else {return}
@@ -164,6 +202,8 @@ class ViewController: UIViewController {
         catchBall(catchBall: ball_5, currentBall: ball_1)
         catchBall(catchBall: ball_6, currentBall: ball_1)
         catchBall(catchBall: ball_7, currentBall: ball_1)
+        
+        
         
         if ball_2.isHidden && ball_3.isHidden && ball_4.isHidden && ball_5.isHidden && ball_6.isHidden && ball_7.isHidden{
             allHidden = true

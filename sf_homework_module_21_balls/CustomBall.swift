@@ -37,14 +37,10 @@ class CustomBall: UIView {
     func setView(){
         workingView = fromXib()
         
-//        workingView.frame = bounds
-//        workingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        
-        workingView.backgroundColor = UIColor.blue
+        workingView.layer.backgroundColor = UIColor.blue.cgColor
         
         workingView.layer.cornerRadius = frame.size.height / 2
-        workingView.clipsToBounds = true
+//        workingView.clipsToBounds = true
         
         addSubview(workingView)
     }
